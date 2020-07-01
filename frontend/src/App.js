@@ -1,10 +1,12 @@
 import React from 'react';
-
+import GlobalStyle from './styles/global'
+import SessionComment from './pages/SessionComment'
 function App() {
   return (
-    <div className="App">
-      oi
-    </div>
+    <>
+      <SessionComment></SessionComment>
+      <GlobalStyle></GlobalStyle>
+    </>
   );
 }
 
