@@ -11,7 +11,7 @@ export default createGlobalStyle`
 }
 html, body, #app {
   min-height: 100vh;
-  background: rgb(24,2,12,0.9);
+  background: rgb(2,22,992);
 }
 body {
   -webkit-font-smoothing: antialiased !important;

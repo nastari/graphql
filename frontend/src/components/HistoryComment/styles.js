@@ -8,7 +8,7 @@ export const Container = styled.div`
   align-items: center;
 
   h1 {
-    color: blue;
+    color: #222;
   }
 
   section {
@@ -18,9 +18,13 @@ export const Container = styled.div`
     div {
       background: rgb(230,230,230);
       border-radius: 5px;
-      width: 350px;
+      width: 500px;
       padding: 10px;
       word-break:break-all;
+
+    h3 {
+        background: greenyellow;
+      }
     }
 
     div + div {

@@ -1,42 +1,29 @@
 import React ,{ useState } from 'react';
 import { Container } from './styles';
-import { gql }from 'apollo-boost';
+import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks'
 
 const ADD_COMMENT = gql`
-mutation($name: String!, $content: String!) {
-  saveComment( 
-    objects: [{
-      name: $name,
-      content: $content
-    }]
-  ){
-    returning {
-    name,
-    content,
-    createdAt
+  mutation save($input: CommentInput) {
+    saveComment(input: $input) {
+      id,
+      name,
+      content,
     }
   }
-}
+`;
 
- `
+
+
 function InputComment() {
+  const [addComment] = useMutation(ADD_COMMENT);
   const [ name , setName ] = useState('');
   const [ content, setContent ] = useState('');
 
-  const [ addComment , {data} ] = useMutation(ADD_COMMENT);
-  console.log(data);
-  function handleName(e){
-    return setName(e.target.value)
-  }
 
-  function handleContent(e){
-    return setContent(e.target.value)
-  }
-
-  function handleSubmit(e){
+  async function handleSubmit(e){
     e.preventDefault();
-    addComment({ variables: { name: name, content: content }});
+    await addComment({ variables: { input: { name, content }}});
     setName('');
     setContent('');
   }
@@ -44,8 +31,16 @@ function InputComment() {
   return ( 
     <Container>
       <div className="inputs">
-      <input type="text" className="name" placeholder="Name" value={name} onChange={handleName}/>
-      <input type="textarea" className="content" placeholder="Comment" value = {content} onChange={handleContent}/>
+      <input type="text" 
+             className="name" 
+             placeholder="Name" 
+             value={name} 
+             onChange={(e) => setName(e.target.value)}/>
+      <input type="textarea" 
+             className="content" 
+             placeholder="Comment" 
+             value = {content} 
+             onChange={(e) => setContent(e.target.value)}/>
       </div>
       <button type="submit" onClick={handleSubmit}>Enviar</button>
     </Container> 
