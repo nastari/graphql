@@ -12,14 +12,14 @@ export const Container = styled.div`
     background: rgb(230,230,230);
     border: 0;
     padding: 5px;
-    border-radius : 15px;
-    width: 175px;
+    border-radius : 10px;
+    width: 250px;
     height: 40px;
     padding: 10px;
   }
 
   button {
-    width: 350px;
+    width: 500px;
     background: rgb(100,100,100);
   }
 
@@ -35,6 +35,6 @@ export const Container = styled.div`
   }
 
   button:hover {
-    background: rgb(30,31,39);
+    background: rgb(50,51,50);
   }
 `;
