@@ -15,8 +15,10 @@ function InputComment() {
 
   return ( 
     <Container>
+      <div className="inputs">
       <input type="text" className="name" placeholder="Name" value={name} onChange={handleName}/>
       <input type="textarea" className="content" placeholder="Comment" value = {comment} onChange={handleComment}/>
+      </div>
       <button type="submit">Enviar</button>
     </Container> 
   );

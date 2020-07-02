@@ -24,21 +24,23 @@ function HistoryComment() {
   return (
     <Container>
       <h1>Campo de Comentários</h1>
+      <section className="comments">
       { loading ? ('Carregando...') : ( 
-          <section className="comments">
+            <>
             { data.getComments === 0 ? 
               ('Não há nenhum comentário') : 
               data.getComments.map(({ id, name, content }) => 
                 ( <div key={id}>
-                  <h3>User: {name} </h3>
-                  <p> Comment: {content}</p>
+                  <h3> {name} </h3>
+                  <p> {content}</p>
                   </div>
                 )
               )
             }
-          </section>
+          </>
         )
       }
+      </section>
 
     </Container>
   );
