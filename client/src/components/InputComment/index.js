@@ -28,6 +28,7 @@ function InputComment() {
     setContent('');
   }
 
+
   return ( 
     <Container>
       <div className="inputs">
@@ -42,7 +43,7 @@ function InputComment() {
              value = {content} 
              onChange={(e) => setContent(e.target.value)}/>
       </div>
-      <button type="submit" onClick={handleSubmit}>Enviar</button>
+      <button type="submit" >Enviar</button>
     </Container> 
   );
 }
